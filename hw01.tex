@@ -1,0 +1,350 @@
+\documentclass[10pt]{exam}
+
+\printanswers
+
+
+\usepackage{epsfig,amssymb}
+\usepackage{xcolor}
+\definecolor{darkred}{rgb}{0.5,0,0}
+\definecolor{darkgreen}{rgb}{0,0.5,0}
+\usepackage{hyperref}
+\usepackage{fullpage}
+\usepackage{tikz}
+\pagestyle{empty} 
+
+\usepackage{listings}
+
+\setlength{\parindent}{0pt} %
+\setlength{\parskip}{.25cm}
+\newcommand{\comment}[1]{}
+\boxedpoints
+
+\addpoints
+
+
+
+\usepackage{amsmath}
+\usepackage{algorithm2e}
+\usepackage{url}
+\usepackage{enumitem}
+\usepackage{graphics}
+
+\pagestyle{headandfoot}
+\firstpageheader{\Large CSCE 235/235H}{{\Large Assignment 1}}{\Large Spring 2017}
+
+\begin{document}
+
+\hrule
+
+\vspace{.50cm} Name:Tianjie Wen \rule{2in}{.001in} \hfill NUID:18143721
+\vspace{.50cm} \rule{2in}{.001in} \hfill 
+\\ Grader \rule{2in}{.001in}
+
+\textbf{Instructions} Follow instructions \emph{carefully}, failure to do so may result in points being deducted.  
+\begin{itemize}
+
+  \item Use US Letter (8.5 x 11.0 inches) size papers to prepare your solutions. Pages teared out from notebooks are not acceptable.
+  \item Print out a copy of this cover sheet and staple it to the front of your assignment.  
+  \item Be sure to show sufficient work to justify your answer(s).
+  \item You will receive 5 bonus points for typesetting your assignment using \LaTeX.  
+  \item If you use \LaTeX to compose your solutions, then submit your \LaTeX source code via handin. In addition to this, you MUST submit a hard copy of your solutions at the beginning of the lecture on the due date.
+  \item The CSE academic dishonesty policy is in effect (see \url{http://cse.unl.edu/academic-integrity-policy}).   
+
+\end{itemize}
+
+
+  
+   
+
+
+\begin{center}
+{\small \gradetable[v] }
+\end{center}
+
+\newpage
+
+\begin{questions}
+
+\question[4] (Rosen 1.1.12) Let $p$, $q$, and $r$ be the propositions
+\begin{itemize}
+  \item $p$: You have the flu.
+  \item $q$: You miss the final examination.
+  \item $r$: You pass the course.
+\end{itemize}
+
+Express each of these propositions as an English sentence.
+
+\begin{enumerate} [label=(\alph*)]
+  \item $\neg q \leftrightarrow r$
+  \item $p \lor q \lor r$
+  \item $(p \rightarrow \neg r) \lor (q \rightarrow \neg r)$
+  \item $(p \land q) \lor (\neg q \land r)$
+\end{enumerate}
+
+\begin{enumerate}
+  \item [a.]You will not miss the final examination if and only if you pass the course.
+  \item [b.]You not only have the flu but also miss the final examination and pass the course.
+  \item [c.]You will not pass the course if you have the flu or miss the final examination.
+  \item [d.]You have the flu and miss the final examination or you do not miss the final examinationand pass the course.  
+\end{enumerate}
+
+
+
+\question[4] (Rosen 1.1.15)  Let p, q, and r be the propositions
+\newline p : Grizzly bears have been seen in the area.
+\newline q : Hiking is safe on the trail.
+\newline r : Berries are ripe along the trail.
+\newline Write these propositions using p, q, and r and logical connectives (including negations).
+
+\begin{enumerate} [label=(\alph*)]
+  \item It is not safe to hike on the trail, but grizzly bears have not been seen in the area and the berries along the trail are ripe.
+  \item For hiking on the trail to be safe, it is necessary but not sufficient that berries not be ripe along the trail and for grizzly bears not to have been seen in the area.
+\end{enumerate}
+
+\begin{enumerate}
+  \item $\neg q \land \neg p \lor r$
+  \item $q \rightarrow( \neg q \land \neg p) $
+\end{enumerate}
+
+\question[4] (Rosen 1.1.30) How many rows appear in a truth table for each of these compound propositions?
+\begin{enumerate} [label=(\alph*)]
+  \item $(q \rightarrow \neg p) \vee (\neg p \rightarrow \neg q)$
+  \item $(p \vee \neg t) \wedge (p \vee \neg s)$
+  \item $(p \rightarrow r) \vee (\neg s \rightarrow \neg t) \vee ( \neg u \rightarrow v)$
+  \item $(p \wedge r \wedge s) \vee (q \wedge t) \vee (r \wedge \neg t)$
+\end{enumerate}
+
+\begin{enumerate}
+  \item 4 rows
+  \item 8 rows
+  \item 64 rows
+  \item 32 rows
+\end{enumerate}
+
+\question[10] (Rosen 1.1.37) Construct a truth table for each of the following compound propositions.
+\begin{enumerate} [label=(\alph*)]
+  \item $\neg p \rightarrow (q \rightarrow r)$
+  \item $(p \rightarrow q) \lor (\neg p \rightarrow r)$
+  \item $(p \rightarrow q) \land (\neg p \rightarrow r)$
+  \item $(p \leftrightarrow q) \lor (\neg q \leftrightarrow r)$
+  \item $(\neg p \leftrightarrow \neg q) \leftrightarrow (q \leftrightarrow r)$
+\end{enumerate}
+
+Answer:
+\begin{enumerate}
+  \item 
+  \begin{table}[h!]
+  \centering 
+  \begin{tabular}{|c|c|c|c|}
+  \hline
+  $p$ & $q$ & $r$ & $\neg p \rightarrow (q \rightarrow r)$ \\
+  \hline
+  T & T & T & T\\
+  T & T & F & T\\
+  T & F & T & T\\
+  F & T & T & T\\
+  T & F & F & T\\
+  F & T & F & F\\
+  F & F & T & T\\
+  F & F & F & T\\
+  \hline
+  \end{tabular}
+  \end{table}
+
+    \item 
+  \begin{table}[h!]
+  \centering 
+  \begin{tabular}{|c|c|c|c|}
+  \hline
+  $p$ & $q$ & $r$ & $(p \rightarrow q) \lor (\neg p \rightarrow r)$ \\
+  \hline
+  T & T & T & T\\
+  T & T & F & T\\
+  T & F & T & T\\
+  F & T & T & T\\
+  T & F & F & T\\
+  F & T & F & T\\
+  F & F & T & T\\
+  F & F & F & T\\
+  \hline
+  \end{tabular}
+  \end{table}
+
+    \item 
+  \begin{table}[h!]
+  \centering 
+  \begin{tabular}{|c|c|c|c|}
+  \hline
+  $p$ & $q$ & $r$ & $(p \rightarrow q) \land (\neg p \rightarrow r)$ \\
+  \hline
+  T & T & T & T\\
+  T & T & F & T\\
+  T & F & T & F\\
+  F & T & T & T\\
+  T & F & F & F\\
+  F & T & F & F\\
+  F & F & T & T\\
+  F & F & F & F\\
+  \hline
+  \end{tabular}
+  \end{table}
+
+  \newpage
+    \item 
+  \begin{table}[!ht]
+  \centering 
+  \begin{tabular}{|c|c|c|c|}
+  \hline
+  $p$ & $q$ & $r$ & $(p \leftrightarrow q) \lor (\neg q \leftrightarrow r)$ \\
+  \hline
+  T & T & T & T \\
+  T & T & F & T \\
+  T & F & T & T \\
+  F & T & T & F \\
+  T & F & F & F \\
+  F & T & F & T \\
+  F & F & T & T \\
+  F & F & F & F \\
+  \hline
+  \end{tabular}
+  \end{table}
+
+    \item 
+  \begin{table}[!ht]
+  \centering 
+  \begin{tabular}{|c|c|c|c|}
+  \hline
+  $p$ & $q$ & $r$ & $(p \leftrightarrow q) \lor (\neg q \leftrightarrow r)$ \\
+  \hline
+  T & T & T & T\\
+  T & T & F & F\\
+  T & F & T & F\\
+  F & T & T & F\\
+  T & F & F & F\\
+  F & T & F & F\\
+  F & F & T & F\\
+  F & F & F & T\\
+  \hline
+  \end{tabular}
+  \end{table}
+
+\end{enumerate}
+
+
+
+\question[3] (Rosen 1.1.46) Fuzzy logic is used in artificial intelligence. In fuzzy logic, a proposition has a truth value that is a number between 0 and 1, inclusive. A proposition with a truth value of 0 is false and one with a truth value of 1 is true. Truth values that are between 0 and 1 indicate varying degrees of truth. For instance, the truth value 0.8 can be assigned to the statement ``Fred is happy,'' because Fred is happy most of the time, and the truth value 0.4 can be assigned to the statement ``John is happy,'' because John is happy slightly less than half the time. Use these truth values to solve the following problem.
+
+\begin{enumerate} [label=(\alph*)]
+  \item The truth value of the conjunction of two propositions in fuzzy logic is the minimum of the truth values of the two propositions. What are the truth values of the statements ``Fred and John are happy'' and ``Neither Fred nor John is happy?''
+  \end{enumerate}
+
+\textbf {Answer:}
+Let $p$,$q$ be propositions:\\
+$p$ : Fred is happy\\
+$q$ : John is happy\\
+
+Therefore, the former statement is $p \land q$ and truth value is 0.4. The latter statement is $\neg (p \land q)$ and true value is 0.6.
+
+\question[3] (Rosen 1.1.48) Is the assertion ``This statement is false'' a proposition? Justify your answer.
+
+\textbf {Answer:}
+\\
+No, it is not a proposition. A proposition is a declarative sentence (that is, a sentence that declares a fact) that is either true or false, but not both. It is true that this is a declarative sentence because it ture value is neither true or false cause ``This statement'' is not clear so that we cannot tell whether this assertion is true or false.\\
+
+
+\question[5] (Rosen 1.2.10) Are these system specifications consistent? ``Whenever the system software is being upgraded, users cannot access the file system. If users can access the file system, then they can save new files. If users cannot save new files, then the system software is not being upgraded.'' 
+\newline Show your work.
+
+\textbf {Answer:}\\
+Let p, q, r be propositions :\\
+$p$ : The system software is being upgraded.\\
+$q$ : Users can access the file system.\\
+$r$ : User can save new files.\\
+So, the first sensetence can be expressed as $p \rightarrow q$. Then the second is $ q \rightarrow r$. Finally, the last is $\neg r \rightarrow \neg p$, which is equivalent to its negation $ r \rightarrow p$. Then we can get $ p \rightarrow q \rightarrow r \rightarrow p$. Therefore, these system are specifications consistent.\\
+
+
+\question[3] Prove or disprove (without using a truth table): $(p \wedge q) \rightarrow (q \rightarrow p)$ is a tautology.
+
+\question[3] Prove that the contrapositive holds (without using a truth table), that is that the following holds:
+$$p \rightarrow q \equiv \neg q \rightarrow \neg p$$
+
+
+\question[8] (Rosen 1.3.10) Show that each of these conditional statements is a tautology by using truth tables.
+\begin{enumerate} [label=(\alph*)]
+  \item $\left[\neg p \land (p \lor q) \right] \rightarrow q$
+  \item $\left[(p \rightarrow q) \land (q \rightarrow r) \right] \rightarrow (p \rightarrow r)$
+  \item $\left[p \land (p \rightarrow q) \right] \rightarrow q$
+  \item $\left[(p \lor q) \land (p \rightarrow r) \land (q \rightarrow r) \right] \rightarrow r$
+\end{enumerate}
+
+\question[6] (Rosen 1.3.18) Show that $\neg (p \oplus q)$ and $p \leftrightarrow q$ are logically equivalent
+without using a truth table.
+
+
+
+\question[6] (Rosen 1.3.26) Show that $\neg p \rightarrow (q \rightarrow r)$ and $q \rightarrow (p \vee r)$ 
+are logically equivalent without using a truth table.
+
+\question[6] (Rosen 1.3.30) Show that $[(p \vee q) \wedge (\neg p \vee r)] \rightarrow (q \vee r)$ is a 
+tautology without using a truth table.
+
+\question[4] (Rosen 1.3.50) The following exercise involve the logical operators NAND and NOR. The proposition p NAND q is true when either p or q, or both, are false; and it is false when both p and q are true. The proposition p NOR q is true when both p and q are false, and it is false otherwise. The propositions p NAND q and p NOR q are denoted by p $\arrowvert$ q and p $\downarrow$ q, respectively. (The operators $\arrowvert$ and $\downarrow$ are called the Sheffer stroke and the Peirce arrow after H. M. Sheffer and C. S. Peirce, respectively.)
+
+\begin{enumerate} [label=(\alph*)]
+  \item Show that p $\downarrow$ p is logically equivalent to $\neg p$.
+  \item Show that (p $\downarrow$ q) $\downarrow$ (p $\downarrow$ q) is logically equivalent to p $\lor$ q.
+\end{enumerate}
+
+\question[3] (Rosen 1.3.62) Determine whether this compound proposition is satisfiable. Show your work.
+\newline $(p \lor q \lor \neg r) \land (p \lor \neg q \lor \neg s) \land (p \lor \neg r \lor \neg s) \land (\neg p \lor \neg q \lor \neg s) \land (p \lor q \lor \neg s)$
+
+\question[6] (Rosen 1.4.12) Let $Q(x)$ be the statement ``$x + 1 > 2x$''.  If the domain consists 
+of all integers, what are these truth values?
+\begin{enumerate} [label=(\alph*)]
+  \item $Q(0)$
+  \item $Q(-1)$
+  \item $Q(1)$
+  \item $\exists x Q(x)$
+  \item $\forall x Q(x)$
+  \item $\exists x \neg Q(x)$
+  \item $\forall x \neg Q(x)$
+\end{enumerate}
+
+\question[6] (Rosen 1.4.36) Find a counterexample, if possible, to these universally quantified 
+statements, where the domain for all variables consists of all the real numbers.
+\begin{enumerate} [label=(\alph*)]
+  \item $\forall x (x^2\neq x)$
+  \item $\forall x (x^2 \neq 2)$
+  \item $\forall x (|x| > 0)$
+\end{enumerate}
+
+
+\question[4] (Rosen 1.5.18) Express each of these system specification using predicates, quantifiers, and logical connectives, if necessary.
+
+\begin{enumerate} [label=(\alph*)]
+   \item The e-mail address of every user can be retrieved whenever the archive contains at least one message sent by every user on the system.
+   \item For every security breach there is at least one mechanism that can detect that breach if and only if there is a process that has not been compromised.
+\end{enumerate}
+
+\question[6] (Rosen 1.4.50) Show that $\forall x P(x) \vee \forall x Q(x)$ and $\forall x (P(x) \vee Q(x))$ are not
+logically equivalent by providing a counterexample.
+
+
+
+\question[6] (Rosen 1.5.30) Rewrite each of these statements so that negations appear only within predicates (that is, so that no negation is outside a quantifier or an expression involving logical connectives).
+\begin{enumerate} [label=(\alph*)]
+  \item $\neg \exists y \left(Q(y) \land \forall x \neg R(x,y) \right)$
+  \item $\neg \exists y \left(\exists x R(x,y) \lor \forall x S(x,y) \right)$
+  \item $\neg \exists y \left(\forall x \exists z T(x,y,z) \lor \exists x \forall z U(x,y,z) \right)$
+\end{enumerate}
+
+
+\question (Bonus: 5 points) Four friends have been identified as suspects for an unauthorized access into a computer system. They have made statements to the investigating authorities. Alice said ``Carlos did it.'' John said ``I did not do it.'' Carlos said ``Diana did it.'' Diana said ``Carlos lied when he said that I did it.''
+\begin{enumerate} [label=(\alph*)]
+  \item If the authorities also know that exactly one of the four suspects is telling the truth, who did it? Explain your reasoning.
+  \item If the authorities also know that exactly one is lying, who did it? Explain your reasoning.
+\end{enumerate}
+
+\end{questions}
+
+\end{document}
